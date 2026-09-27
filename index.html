@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+<title>68代 新幹部発表会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yuji+Boku&family=Yomogi&family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --gold:#c9a24b; --gold-soft:#e7cf8f;
+  --carpet-1:#5c0f16; --carpet-2:#7d151d; --carpet-3:#2f0509;
+  --ink:#231414; --paper:#fbf4ea; --paper-2:#f3e6cf;
+  --card:#ffffff; --shadow:rgba(50,10,10,.25);
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --paper:#1b1210; --paper-2:#241715; --card:#2a1c19; --ink:#f3e6cf; --shadow:rgba(0,0,0,.5);}
+}
+:root[data-theme="dark"]{ --paper:#1b1210; --paper-2:#241715; --card:#2a1c19; --ink:#f3e6cf; --shadow:rgba(0,0,0,.5);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:"Yomogi","Noto Sans JP",sans-serif;
+  background:var(--paper); color:var(--ink); min-height:100%;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:640px;margin:0 auto;min-height:100vh;position:relative;padding-bottom:40px;}
+.calligraphy{font-family:"Yuji Boku",serif;}
+
+/* nav controls */
+.navbtn{
+  position:fixed; top:calc(14px + env(safe-area-inset-top,0px)); z-index:50;
+  width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  background:rgba(20,6,8,.55); color:#f3e6cf; backdrop-filter:blur(4px);
+  box-shadow:0 4px 14px var(--shadow); transition:transform .15s;
+}
+.navbtn:active{transform:scale(.9);}
+#backBtn{left:14px;}
+#homeBtn{right:14px;}
+
+/* HOME */
+.hero{
+  height:56vh; min-height:320px; position:relative; overflow:hidden;
+  background:
+    radial-gradient(circle at 30% 20%, #4a2a2a 0%, transparent 55%),
+    radial-gradient(circle at 75% 70%, #3a1414 0%, transparent 60%),
+    linear-gradient(160deg,#2a1210 0%, #4a1c1c 45%, #1c0a0a 100%);
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center;
+  padding-top:calc(7% + env(safe-area-inset-top,0px));
+}
+.hero .bgphoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,6,8,.75) 0%,rgba(20,6,8,.35) 30%,rgba(20,6,8,.1) 55%,rgba(20,6,8,.6) 100%);}
+.hero .glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 35%, rgba(255,220,150,.16), transparent 60%);}
+.hero h1{position:relative;color:var(--gold-soft);font-family:"Yomogi";font-size:15px;letter-spacing:.2em;margin-bottom:10px;}
+.hero h2{position:relative;color:#fff;font-size:34px;font-family:"Yomogi";}
+.hero h2 span{color:var(--gold);}
+
+.carpet{
+  background:linear-gradient(180deg,var(--carpet-2),var(--carpet-1) 60%, var(--carpet-3));
+  padding:26px 18px 34px; position:relative;
+}
+.carpet::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.unlockLink{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin:0 auto 26px; max-width:420px; padding:14px 18px; border-radius:14px;
+  border:1px solid var(--gold); color:var(--gold-soft); text-decoration:none;
+  background:rgba(255,255,255,.06); font-size:14px; cursor:pointer;
+}
+.unlockLink b{font-weight:700;color:#fff;}
+
+.roleGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:460px;margin:0 auto;}
+.roleGrid button{
+  font-family:inherit; font-size:12px; color:#fff8ec; text-align:left;
+  background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.02));
+  border:1px solid rgba(233,204,143,.35); border-radius:12px; padding:14px 12px;
+  cursor:pointer; line-height:1.4;
+}
+.roleGrid button:active{background:rgba(255,255,255,.16);}
+
+/* generic page */
+.page{padding:88px 20px 30px;max-width:520px;margin:0 auto;}
+.crumb{font-size:12px;color:var(--gold);letter-spacing:.15em;margin-bottom:6px;}
+.roleName{
+  font-size:24px; background:none; border:none; color:var(--ink);
+  font-family:"Yomogi"; text-align:left; padding:0; cursor:pointer; margin-bottom:22px;
+  border-bottom:2px dotted var(--gold); padding-bottom:8px; display:inline-block;
+}
+.chooser{display:flex;flex-wrap:wrap;gap:8px;margin:-10px 0 24px;}
+.chooser button{
+  font-family:inherit;font-size:13px;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--gold); background:var(--card); color:var(--ink); cursor:pointer;
+}
+.chooser button.active{background:var(--carpet-1);color:#fff8ec;border-color:var(--carpet-1);}
+
+.kanjiBig{display:flex;gap:clamp(4px,2vw,14px);justify-content:center;align-items:center;margin:14px 0 34px;flex-wrap:wrap;}
+.kanjiBig span{
+  font-family:"Yuji Boku"; color:var(--carpet-1); font-size:clamp(46px,17vw,88px);
+  line-height:1; text-shadow:2px 3px 0 rgba(0,0,0,.08);
+}
+.detailCard .kanjiBig span{font-size:clamp(50px,14vw,72px);}
+.kanjiRule{width:70px;height:3px;background:var(--gold);margin:0 auto 30px;border-radius:2px;}
+.nextArrow{
+  display:block; margin:26px auto 0; width:fit-content; padding:0 4px 10px;
+  background:none; color:var(--carpet-1); font-family:"Yomogi"; letter-spacing:.05em;
+  font-size:26px; cursor:pointer; border:none; border-bottom:1.5px solid rgba(92,15,22,.35);
+}
+
+/* detail */
+.detailCard{background:var(--card);border-radius:18px;padding:30px 22px;box-shadow:0 10px 30px var(--shadow);text-align:center;}
+.prole{font-size:13px;color:var(--gold);letter-spacing:.15em;margin-bottom:6px;}
+.pname{font-size:38px;font-family:"Yomogi";margin-bottom:26px;}
+.polaroid{
+  display:inline-block; background:#fff; padding:14px 14px 32px; border-radius:10px;
+  box-shadow:0 12px 26px var(--shadow); transform:rotate(-3deg); margin:0 0 26px;
+}
+.polaroid img{width:min(60vw,240px);height:min(60vw,240px);object-fit:cover;border-radius:4px;display:block;}
+.polaroidFallback{
+  width:min(60vw,240px);height:min(60vw,240px);border-radius:4px;background:var(--paper-2);
+  align-items:center;justify-content:center;color:var(--carpet-1);font-family:"Yuji Boku";font-size:clamp(48px,16vw,84px);
+}
+.homeLink{display:inline-block;margin-top:6px;font-size:13px;color:var(--carpet-1);text-decoration:underline;cursor:pointer;background:none;border:none;font-family:inherit;}
+
+/* roster */
+.lockCard{background:var(--card);border-radius:18px;padding:36px 20px;text-align:center;box-shadow:0 10px 30px var(--shadow);}
+.lockCard .big{font-size:38px;margin-bottom:10px;}
+.timer{font-size:28px;font-family:"Yomogi";color:var(--carpet-1);margin:14px 0 4px;letter-spacing:.05em;}
+.rosterTableWrap{overflow-x:auto;border-radius:14px;box-shadow:0 6px 20px var(--shadow);}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:10.5px;table-layout:fixed;font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif;}
+th:first-child,td:first-child{width:46%;}
+th{background:var(--carpet-1);color:#fff8ec;text-align:left;padding:6px 6px;font-weight:500;word-break:break-word;}
+td{padding:6px 6px;border-top:1px solid var(--paper-2);vertical-align:top;word-break:break-word;}
+tr:nth-child(even) td{background:var(--paper-2);}
+.roleCell{cursor:pointer;font-weight:700;color:var(--carpet-1);}
+.memberTag{display:inline-block;cursor:pointer;color:var(--ink);text-decoration:underline dotted;margin-right:5px;}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script>
+// 写真ファイル名の対応表（images/photos/ 内にこのファイル名で置いてください。例: images/photos/takamotootoha.jpg）
+const SLUG = {
+ "髙本乙葉":"takamotootoha","岡部百々奏":"okabemomoka","原田唄羽":"haradautaha","藤井湊平":"fujiisouhei",
+ "佐竹志音":"satakeshion","仲谷紗楽":"nakatanisara","増井万太郎":"masuimantarou","信國陽香":"nobukuniharuka",
+ "福島桜太":"fukushimaouta","伊藤綾音":"itouayane","榎浪葵":"enamiaoi","井原響花":"iharakyouka",
+ "迫田小由姫":"sakodakoyuki","別所収穂":"besshoshuuho","小野虹春":"onokoharu","道田美羽":"michidamiu",
+ "荒木千智":"arakichisato","坂田夏子":"sakatanatsuko","杉本あかり":"sugimotoakari","岡島泉":"okajimaizumi",
+ "藤川日菜子":"fujikawahinako","東浦優果":"higashiurayuuka","五十棲遥奈":"isozumiharuna","東野紗良":"higashinosara",
+ "名取佳穂":"natorikaho","黒田千尋":"kurodachihiro","西川京華":"nishikawakyouka","長澤晟行":"nagasawaakiyuki",
+ "宮脇陽香":"miyawakiharuka","矢野沙楽々":"yanosarara","東田夏芽":"higashidanatsume","亀岡大翔":"kameokahiroto","辻はな":"tsujihana"
+};
+function photoUrl(name){ return `images/photos/${SLUG[name]}.jpg`; }
+const PART = {
+  "亀岡大翔": "Euph",
+  "五十棲遥奈": "Fl",
+  "井原響花": "Tp",
+  "仲谷紗楽": "Tb",
+  "伊藤綾音": "Perc",
+  "佐竹志音": "Hr",
+  "信國陽香": "WR",
+  "別所収穂": "Hr",
+  "原田唄羽": "Hr",
+  "名取佳穂": "Tb",
+  "坂田夏子": "Perc",
+  "増井万太郎": "Tu",
+  "宮脇陽香": "Sax",
+  "小野虹春": "Sax",
+  "岡島泉": "Tp",
+  "岡部百々奏": "Fl",
+  "杉本あかり": "Euph",
+  "東浦優果": "Cl",
+  "東田夏芽": "Fl",
+  "東野紗良": "Cb",
+  "榎浪葵": "WR",
+  "矢野沙楽々": "Cl",
+  "福島桜太": "Sax",
+  "荒木千智": "Tb",
+  "藤井湊平": "Tb",
+  "藤川日菜子": "Tp",
+  "西川京華": "Sax",
+  "辻はな": "Cl",
+  "迫田小由姫": "Cl",
+  "道田美羽": "Sax",
+  "長澤晟行": "Tp",
+  "髙本乙葉": "Hr",
+  "黒田千尋": "Tb"
+};
+
+// n=名前, k=決定した漢字四文字（未決定の3人は仮の候補のまま）
+const ROLES = [
+ {name:"部長",members:[{n:"髙本乙葉",k:"圧政圧政"}]},
+ {name:"副部長",members:[{n:"岡部百々奏",k:"赤髪笛吹"},{n:"原田唄羽",k:"教育番組"},{n:"藤井湊平",k:"血液拉麺"}]},
+ {name:"正指揮者",members:[{n:"佐竹志音",k:"騒音被害"}]},
+ {name:"金管セクションリーダー",members:[{n:"仲谷紗楽",k:"暗髪美人"},{n:"増井万太郎",k:"一十百千"}]},
+ {name:"木管セクションリーダー",members:[{n:"信國陽香",k:"済済黌高"},{n:"福島桜太",k:"退職餃子"}]},
+ {name:"打楽器セクションリーダー",members:[{n:"伊藤綾音",k:"海外逃避"}]},
+ {name:"一般渉内",members:[{n:"榎浪葵",k:"単位女王"},{n:"髙本乙葉",k:"圧政圧政"}]},
+ {name:"応援団担当",members:[{n:"井原響花",k:"運搬大賞"},{n:"迫田小由姫",k:"爆食美女"},{n:"別所収穂",k:"文学女子"}]},
+ {name:"依頼担当",members:[{n:"小野虹春",k:"引越愚策"},{n:"道田美羽",k:"落単上等"},{n:"井原響花",k:"運搬大賞"}]},
+ {name:"合宿担当",members:[{n:"荒木千智",k:"兼任姉御"},{n:"坂田夏子",k:"韓国演歌"},{n:"名取佳穂",k:"英国就職"}]},
+ {name:"OB担当",members:[{n:"岡島泉",k:"一限週五"},{n:"藤川日菜子",k:"早朝散歩"}]},
+ {name:"楽器管理",members:[{n:"黒田千尋",k:"中途採用"},{n:"宮脇陽香",k:"級巣戸桃"},{n:"伊藤綾音",k:"海外決闘"}]},
+ {name:"楽譜管理",members:[{n:"東浦優果",k:"効率厨毒"},{n:"名取佳穂",k:"遊男拒否"}]},
+ {name:"会計",members:[{n:"五十棲遥奈",k:"人生二周目"},{n:"東野紗良",k:"結構遅刻"}]},
+ {name:"記録担当",members:[{n:"杉本あかり",k:"恋愛師範"},{n:"迫田小由姫",k:"爆食美女"}]},
+ {name:"式典担当",members:[{n:"黒田千尋",k:"似取佳穂"},{n:"藤川日菜子",k:"早朝散歩"}]},
+ {name:"HP管理",members:[{n:"榎浪葵",k:"単位女王"}]},
+ {name:"一般渉外",members:[{n:"西川京華",k:"髪色可変"},{n:"岡島泉",k:"一限週五"}]},
+ {name:"総合管理",members:[{n:"五十棲遥奈",k:"吹部長女"},{n:"東野紗良",k:"増井和解"}]},
+ {name:"運搬管理",members:[{n:"長澤晟行",k:"片手運転"},{n:"宮脇陽香",k:"級巣戸桃"},{n:"荒木千智",k:"松園同期"}]},
+ {name:"企画部長",members:[{n:"矢野沙楽々",k:"鳥取砂丘"}]},
+ {name:"総務部長",members:[{n:"東田夏芽",k:"合奏入眠"}]},
+ {name:"情宣部長",members:[{n:"亀岡大翔",k:"腹黒冷笑"}]},
+ {name:"編集部長",members:[{n:"辻はな",k:"全名極短"}]},
+];
+// ↓ 名簿一覧公開時刻
+const UNLOCK_TIME = new Date("2020-01-01T00:00:00+09:00");
+
+const app = document.getElementById('app');
+let stack = [];
+let cur = {type:'home'};
+
+function go(view){ stack.push(cur); cur = view; render(); }
+function back(){ cur = stack.pop() || {type:'home'}; render(); }
+function homeReset(){ stack = []; cur = {type:'home'}; render(); }
+
+function kanjiBig(kanji){
+  const chars = kanji.split('');
+  return '<div class="kanjiBig">' + chars.map(c=>`<span>${c}</span>`).join('') + '</div><div class="kanjiRule"></div>';
+}
+function chooser(role, idx){
+  if(role.members.length<2) return '';
+  return '<div class="chooser" id="chooser">' + role.members.map((m,i)=>
+    `<button class="${i===idx?'active':''}" data-i="${i}">${i+1}人目</button>`).join('') + '</div>';
+}
+
+function renderHome(){
+  const locked = new Date() < UNLOCK_TIME;
+  return `
+  <div class="hero">
+    <img class="bgphoto" src="images/home.jpg" alt="" onerror="this.remove()">
+    <div class="shade"></div>
+    <div class="glow"></div>
+    <h1>68代 幹部発表会</h1>
+    <h2>新<span>幹部</span>発表</h2>
+  </div>
+  <div class="carpet">
+    <div class="unlockLink" id="rosterLink">
+      ${locked? '🔒 <span>名簿一覧は <b>時間になったら</b> 公開されます</span>' : '📋 <span><b>役職名簿一覧</b> を見る</span>'}
+    </div>
+    <div class="roleGrid">
+      ${ROLES.map((r,i)=>`<button data-i="${i}">${r.name}</button>`).join('')}
+    </div>
+  </div>`;
+}
+
+function renderRole(v){
+  const role = ROLES[v.roleI];
+  const idx = v.personI||0;
+  const person = role.members[idx];
+  return `<div class="page">
+    <div class="crumb">ROLE</div>
+    <button class="roleName" id="roleToggle">${role.name}</button>
+    ${chooser(role, idx)}
+    ${kanjiBig(person.k)}
+    <button class="nextArrow" id="goDetail">WHO IS IT?</button>
+  </div>`;
+}
+
+function renderDetail(v){
+  const role = ROLES[v.roleI];
+  const idx = v.personI||0;
+  const person = role.members[idx];
+  return `<div class="page">
+    <div class="detailCard">
+      ${kanjiBig(person.k)}
+      <div class="prole">${role.name}</div>
+      <div class="pname">${PART[person.n]? PART[person.n]+'&nbsp; ' : ''}${person.n}</div>
+      <div class="polaroid">
+        <img src="${photoUrl(person.n)}" alt="${person.n}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="polaroidFallback" style="display:none;">${person.n[0]}</div>
+      </div>
+      <div><button class="homeLink" id="toHome">ホームに戻る</button></div>
+    </div>
+  </div>`;
+}
+
+function renderRoster(){
+  const locked = new Date() < UNLOCK_TIME;
+  if(locked){
+    return `<div class="page">
+      <div class="lockCard">
+        <div class="big">🔒</div>
+        <div>役職名簿一覧はまだ非公開です</div>
+        <div class="timer" id="countdown">--:--:--</div>
+        <div style="font-size:12px;opacity:.7;">公開までお待ちください</div>
+      </div>
+    </div>`;
+  }
+  const rows = ROLES.map((r,ri)=>`<tr>
+      <td class="roleCell" data-role="${ri}">${r.name}</td>
+      <td>${r.members.map((m,pi)=>`<span class="memberTag" data-role="${ri}" data-p="${pi}">${m.n}</span>`).join('')}</td>
+    </tr>`).join('');
+  return `<div class="page">
+    <div class="crumb">ROSTER</div>
+    <h2 style="font-family:'Yomogi';margin-bottom:16px;font-size:22px;">68代 役職名簿一覧</h2>
+    <div class="rosterTableWrap"><table>
+      <tr><th>役職</th><th>担当</th></tr>${rows}
+    </table></div>
+  </div>`;
+}
+
+function render(){
+  let html='';
+  if(cur.type==='home') html = renderHome();
+  else if(cur.type==='role') html = renderRole(cur);
+  else if(cur.type==='detail') html = renderDetail(cur);
+  else if(cur.type==='roster') html = renderRoster();
+
+  const nav = `
+    ${stack.length? '<button class="navbtn" id="backBtn">←</button>' : ''}
+    ${cur.type!=='home' ? '<button class="navbtn" id="homeBtn">⌂</button>' : ''}
+  `;
+  app.innerHTML = nav + html;
+  attach();
+}
+
+function attach(){
+  const backBtn=document.getElementById('backBtn'); if(backBtn) backBtn.onclick=back;
+  const homeBtn=document.getElementById('homeBtn'); if(homeBtn) homeBtn.onclick=homeReset;
+
+  if(cur.type==='home'){
+    document.getElementById('rosterLink').onclick=()=>go({type:'roster'});
+    app.querySelectorAll('.roleGrid button').forEach(b=>{
+      b.onclick=()=>go({type:'role', roleI:+b.dataset.i, personI:0});
+    });
+  }
+  if(cur.type==='role'){
+    const role = ROLES[cur.roleI];
+    const toggle = document.getElementById('roleToggle');
+    if(toggle) toggle.onclick=()=>{
+      const c=document.getElementById('chooser');
+      if(c) c.style.display = c.style.display==='none' ? 'flex':'none';
+    };
+    app.querySelectorAll('.chooser button').forEach(b=>{
+      b.onclick=()=>{ cur.personI=+b.dataset.i; render(); };
+    });
+    document.getElementById('goDetail').onclick=()=>go({type:'detail', roleI:cur.roleI, personI:cur.personI||0});
+  }
+  if(cur.type==='detail'){
+    document.getElementById('toHome').onclick=homeReset;
+  }
+  if(cur.type==='roster'){
+    if(new Date() < UNLOCK_TIME){
+      const t=setInterval(()=>{
+        const diff = UNLOCK_TIME - new Date();
+        if(diff<=0){ clearInterval(t); render(); return; }
+        const h=String(Math.floor(diff/3600000)).padStart(2,'0');
+        const m=String(Math.floor(diff/60000)%60).padStart(2,'0');
+        const s=String(Math.floor(diff/1000)%60).padStart(2,'0');
+        const el=document.getElementById('countdown');
+        if(el) el.textContent=`${h}:${m}:${s}`; else clearInterval(t);
+      },1000);
+    } else {
+      app.querySelectorAll('.roleCell').forEach(td=>{
+        td.onclick=()=>go({type:'role', roleI:+td.dataset.role, personI:0});
+      });
+      app.querySelectorAll('.memberTag').forEach(sp=>{
+        sp.onclick=()=>go({type:'detail', roleI:+sp.dataset.role, personI:+sp.dataset.p});
+      });
+    }
+  }
+}
+render();
+</script>
+</body>
+</html>
