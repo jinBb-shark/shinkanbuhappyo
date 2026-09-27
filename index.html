@@ -143,14 +143,14 @@ tr:nth-child(even) td{background:var(--paper-2);}
 <script>
 // 写真ファイル名の対応表（images/photos/ 内にこのファイル名で置いてください。例: images/photos/takamotootoha.jpg）
 const SLUG = {
- "Hr 髙本乙葉":"takamotootoha","Fl 岡部百々奏":"okabemomoka","Hr 原田唄羽":"haradautaha","Tb 藤井湊平":"fujiisouhei",
- "Hr 佐竹志音":"satakeshion","Tb 仲谷紗楽":"nakatanisara","Bass 増井万太郎":"masuimantarou","WR信國陽香":"nobukuniharuka",
- "Sax 福島桜太":"fukushimaouta","Per 伊藤綾音":"itouayane","WR 榎浪葵":"enamiaoi","Tp 井原響花":"iharakyouka",
- "Cl 迫田小由姫":"sakodakoyuki","Hr 別所収穂":"besshoshuuho","Sax 小野虹春":"onokoharu","Sax 道田美羽":"michidamiu",
- "Tb 荒木千智":"arakichisato","Per 坂田夏子":"sakatanatsuko","Euph 杉本あかり":"sugimotoakari","Tp 岡島泉":"okajimaizumi",
- "Tp 藤川日菜子":"fujikawahinako","Cl 東浦優果":"higashiurayuuka","Fl 五十棲遥奈":"isozumiharuna","Bass 東野紗良":"higashinosara",
- "Tb 名取佳穂":"natorikaho","Tb 黒田千尋":"kurodachihiro","Sax 西川京華":"nishikawakyouka","Tp 長澤晟行":"nagasawaakiyuki",
- "Sax 宮脇陽香":"miyawakiharuka","Cl 矢野沙楽々":"yanosarara","Fl 東田夏芽":"higashidanatsume","Euph 亀岡大翔":"kameokahiroto","Cl 辻はな":"tsujihana"
+ "髙本乙葉":"takamotootoha","岡部百々奏":"okabemomoka","原田唄羽":"haradautaha","藤井湊平":"fujiisouhei",
+ "佐竹志音":"satakeshion","仲谷紗楽":"nakatanisara","増井万太郎":"masuimantarou","信國陽香":"nobukuniharuka",
+ "福島桜太":"fukushimaouta","伊藤綾音":"itouayane","榎浪葵":"enamiaoi","井原響花":"iharakyouka",
+ "迫田小由姫":"sakodakoyuki","別所収穂":"besshoshuuho","小野虹春":"onokoharu","道田美羽":"michidamiu",
+ "荒木千智":"arakichisato","坂田夏子":"sakatanatsuko","杉本あかり":"sugimotoakari","岡島泉":"okajimaizumi",
+ "藤川日菜子":"fujikawahinako","東浦優果":"higashiurayuuka","五十棲遥奈":"isozumiharuna","東野紗良":"higashinosara",
+ "名取佳穂":"natorikaho","黒田千尋":"kurodachihiro","西川京華":"nishikawakyouka","長澤晟行":"nagasawaakiyuki",
+ "宮脇陽香":"miyawakiharuka","矢野沙楽々":"yanosarara","東田夏芽":"higashidanatsume","亀岡大翔":"kameokahiroto","辻はな":"tsujihana"
 };
 function photoUrl(name){ return `images/photos/${SLUG[name]}.jpg`; }
 // n=名前, k=決定した漢字四文字（未決定の3人は仮の候補のまま）
