@@ -143,42 +143,42 @@ tr:nth-child(even) td{background:var(--paper-2);}
 <script>
 // 写真ファイル名の対応表（images/photos/ 内にこのファイル名で置いてください。例: images/photos/takamotootoha.jpg）
 const SLUG = {
- "髙本乙葉":"takamotootoha","岡部百々奏":"okabemomoka","原田唄羽":"haradautaha","藤井湊平":"fujiisouhei",
- "佐竹志音":"satakeshion","仲谷紗楽":"nakatanisara","増井万太郎":"masuimantarou","信國陽香":"nobukuniharuka",
- "福島桜太":"fukushimaouta","伊藤綾音":"itouayane","榎浪葵":"enamiaoi","井原響花":"iharakyouka",
- "迫田小由姫":"sakodakoyuki","別所収穂":"besshoshuuho","小野虹春":"onokoharu","道田美羽":"michidamiu",
- "荒木千智":"arakichisato","坂田夏子":"sakatanatsuko","杉本あかり":"sugimotoakari","岡島泉":"okajimaizumi",
- "藤川日菜子":"fujikawahinako","東浦優果":"higashiurayuuka","五十棲遥奈":"isozumiharuna","東野紗良":"higashinosara",
- "名取佳穂":"natorikaho","黒田千尋":"kurodachihiro","西川京華":"nishikawakyouka","長澤晟行":"nagasawaakiyuki",
- "宮脇陽香":"miyawakiharuka","矢野沙楽々":"yanosarara","東田夏芽":"higashidanatsume","亀岡大翔":"kameokahiroto","辻はな":"tsujihana"
+ "Hr 髙本乙葉":"takamotootoha","Fl 岡部百々奏":"okabemomoka","Hr 原田唄羽":"haradautaha","Tb 藤井湊平":"fujiisouhei",
+ "Hr 佐竹志音":"satakeshion","Tb 仲谷紗楽":"nakatanisara","Bass 増井万太郎":"masuimantarou","WR信國陽香":"nobukuniharuka",
+ "Sax 福島桜太":"fukushimaouta","Per 伊藤綾音":"itouayane","WR 榎浪葵":"enamiaoi","Tp 井原響花":"iharakyouka",
+ "Cl 迫田小由姫":"sakodakoyuki","Hr 別所収穂":"besshoshuuho","Sax 小野虹春":"onokoharu","Sax 道田美羽":"michidamiu",
+ "Tb 荒木千智":"arakichisato","Per 坂田夏子":"sakatanatsuko","Euph 杉本あかり":"sugimotoakari","Tp 岡島泉":"okajimaizumi",
+ "Tp 藤川日菜子":"fujikawahinako","Cl 東浦優果":"higashiurayuuka","Fl 五十棲遥奈":"isozumiharuna","Bass 東野紗良":"higashinosara",
+ "Tb 名取佳穂":"natorikaho","Tb 黒田千尋":"kurodachihiro","Sax 西川京華":"nishikawakyouka","Tp 長澤晟行":"nagasawaakiyuki",
+ "Sax 宮脇陽香":"miyawakiharuka","Cl 矢野沙楽々":"yanosarara","Fl 東田夏芽":"higashidanatsume","Euph 亀岡大翔":"kameokahiroto","Cl 辻はな":"tsujihana"
 };
 function photoUrl(name){ return `images/photos/${SLUG[name]}.jpg`; }
 // n=名前, k=決定した漢字四文字（未決定の3人は仮の候補のまま）
 const ROLES = [
- {name:"部長",members:[{n:"髙本乙葉",k:"圧政圧政"}]},
- {name:"副部長",members:[{n:"岡部百々奏",k:"赤髪笛吹"},{n:"原田唄羽",k:"教育番組"},{n:"藤井湊平",k:"血液拉麺"}]},
- {name:"正指揮者",members:[{n:"佐竹志音",k:"騒音被害"}]},
- {name:"金管セクションリーダー",members:[{n:"仲谷紗楽",k:"弾丸話術"},{n:"増井万太郎",k:"一十百千"}]},
- {name:"木管セクションリーダー",members:[{n:"信國陽香",k:"済済黌高"},{n:"福島桜太",k:"退職餃子"}]},
- {name:"打楽器セクションリーダー",members:[{n:"伊藤綾音",k:"海外逃避"}]},
- {name:"一般渉内",members:[{n:"榎浪葵",k:"単位女王"},{n:"髙本乙葉",k:"圧政圧政"}]},
- {name:"応援団担当",members:[{n:"井原響花",k:"運搬大賞"},{n:"迫田小由姫",k:"爆食美女"},{n:"別所収穂",k:"文学女子"}]},
- {name:"依頼担当",members:[{n:"小野虹春",k:"引越愚策"},{n:"道田美羽",k:"落単上等"},{n:"井原響花",k:"運搬大賞"}]},
- {name:"合宿担当",members:[{n:"荒木千智",k:"兼任姉御"},{n:"坂田夏子",k:"韓国演歌"},{n:"名取佳穂",k:"英国就職"}]},
- {name:"OB担当",members:[{n:"岡島泉",k:"一限週五"},{n:"藤川日菜子",k:"早朝散歩"}]},
- {name:"楽器管理",members:[{n:"黒田千尋",k:"中途採用"},{n:"宮脇陽香",k:"級巣戸桃"},{n:"伊藤綾音",k:"海外決闘"}]},
- {name:"楽譜管理",members:[{n:"東浦優果",k:"効率厨毒"},{n:"名取佳穂",k:"遊男拒否"}]},
- {name:"会計",members:[{n:"五十棲遥奈",k:"人生二周目"},{n:"東野紗良",k:"結構遅刻"}]},
- {name:"記録担当",members:[{n:"杉本あかり",k:"恋愛師範"},{n:"迫田小由姫",k:"爆食美女"}]},
- {name:"式典担当",members:[{n:"黒田千尋",k:"似取佳穂"},{n:"藤川日菜子",k:"早朝散歩"}]},
- {name:"HP管理",members:[{n:"榎浪葵",k:"単位女王"}]},
- {name:"一般渉外",members:[{n:"西川京華",k:"髪色可変"},{n:"岡島泉",k:"一限週五"}]},
- {name:"総合管理",members:[{n:"五十棲遥奈",k:"吹部長女"},{n:"東野紗良",k:"増井和解"}]},
- {name:"運搬管理",members:[{n:"長澤晟行",k:"片手運転"},{n:"宮脇陽香",k:"級巣戸桃"},{n:"荒木千智",k:"松園同期"}]},
- {name:"企画部長",members:[{n:"矢野沙楽々",k:"鳥取砂丘"}]},
- {name:"総務部長",members:[{n:"東田夏芽",k:"合奏入眠"}]},
- {name:"情宣部長",members:[{n:"亀岡大翔",k:"腹黒冷笑"}]},
- {name:"編集部長",members:[{n:"辻はな",k:"全名極短"}]},
+ {name:"部長",members:[{n:"Hr 髙本乙葉",k:"圧政圧政"}]},
+ {name:"副部長",members:[{n:"Fl 岡部百々奏",k:"赤髪笛吹"},{n:"Hr 原田唄羽",k:"教育番組"},{n:"Tb 藤井湊平",k:"血液拉麺"}]},
+ {name:"正指揮者",members:[{n:"Hr 佐竹志音",k:"騒音被害"}]},
+ {name:"金管セクションリーダー",members:[{n:"Tb 仲谷紗楽",k:"弾丸話術"},{n:"Bass 増井万太郎",k:"一十百千"}]},
+ {name:"木管セクションリーダー",members:[{n:"WR 信國陽香",k:"済済黌高"},{n:"Sax 福島桜太",k:"退職餃子"}]},
+ {name:"打楽器セクションリーダー",members:[{n:"Per 伊藤綾音",k:"海外逃避"}]},
+ {name:"一般渉内",members:[{n:"WR 榎浪葵",k:"単位女王"},{n:"Hr 髙本乙葉",k:"圧政圧政"}]},
+ {name:"応援団担当",members:[{n:"Tp 井原響花",k:"運搬大賞"},{n:"Cl 迫田小由姫",k:"爆食美女"},{n:"Hr 別所収穂",k:"文学女子"}]},
+ {name:"依頼担当",members:[{n:"Sax 小野虹春",k:"引越愚策"},{n:"Sax 道田美羽",k:"落単上等"},{n:"Tp 井原響花",k:"運搬大賞"}]},
+ {name:"合宿担当",members:[{n:"Tb 荒木千智",k:"兼任姉御"},{n:"Per 坂田夏子",k:"韓国演歌"},{n:"Tb 名取佳穂",k:"英国就職"}]},
+ {name:"OB担当",members:[{n:"Tp 岡島泉",k:"一限週五"},{n:"Tp 藤川日菜子",k:"早朝散歩"}]},
+ {name:"楽器管理",members:[{n:"Tb 黒田千尋",k:"中途採用"},{n:"Sax 宮脇陽香",k:"級巣戸桃"},{n:"Per 伊藤綾音",k:"海外決闘"}]},
+ {name:"楽譜管理",members:[{n:"Cl 東浦優果",k:"効率厨毒"},{n:"Tb 名取佳穂",k:"遊男拒否"}]},
+ {name:"会計",members:[{n:"Fl 五十棲遥奈",k:"人生二周目"},{n:"Bass 東野紗良",k:"結構遅刻"}]},
+ {name:"記録担当",members:[{n:"Euph 杉本あかり",k:"恋愛師範"},{n:"Cl 迫田小由姫",k:"爆食美女"}]},
+ {name:"式典担当",members:[{n:"Tb 黒田千尋",k:"似取佳穂"},{n:"Tp 藤川日菜子",k:"早朝散歩"}]},
+ {name:"HP管理",members:[{n:"WR 榎浪葵",k:"単位女王"}]},
+ {name:"一般渉外",members:[{n:"Sax 西川京華",k:"髪色可変"},{n:"Tp 岡島泉",k:"一限週五"}]},
+ {name:"総合管理",members:[{n:"Fl 五十棲遥奈",k:"吹部長女"},{n:"Bass 東野紗良",k:"増井和解"}]},
+ {name:"運搬管理",members:[{n:"Tp 長澤晟行",k:"片手運転"},{n:"Sax 宮脇陽香",k:"級巣戸桃"},{n:"Tb 荒木千智",k:"松園同期"}]},
+ {name:"企画部長",members:[{n:"Cl 矢野沙楽々",k:"鳥取砂丘"}]},
+ {name:"総務部長",members:[{n:"Fl 東田夏芽",k:"合奏入眠"}]},
+ {name:"情宣部長",members:[{n:"Euph 亀岡大翔",k:"腹黒冷笑"}]},
+ {name:"編集部長",members:[{n:"Cl 辻はな",k:"全名極短"}]},
 ];
 // ↓ 名簿一覧公開時刻
 const UNLOCK_TIME = new Date("2020-01-01T00:00:00+09:00");
@@ -230,7 +230,7 @@ function renderRole(v){
     <button class="roleName" id="roleToggle">${role.name}</button>
     ${chooser(role, idx)}
     ${kanjiBig(person.k)}
-    <button class="nextArrow" id="goDetail">くわしく見る →</button>
+    <button class="nextArrow" id="goDetail">WHO IS IT?</button>
   </div>`;
 }
 
