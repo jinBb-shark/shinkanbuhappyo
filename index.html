@@ -152,8 +152,7 @@ const SLUG = {
  "宮脇陽香":"miyawakiharuka","矢野沙楽々":"yanosarara","東田夏芽":"higashidanatsume","亀岡大翔":"kameokahiroto","辻はな":"tsujihana"
 };
 function photoUrl(name){ return `images/photos/${SLUG[name]}.jpg`; }
-// パート名（詳細ページで「Tb 藤井湊平」のように名前の前に表示。名簿一覧には出しません）
-// 例: "藤井湊平":"Tb", "髙本乙葉":"Hr"  ← 教えていただいたら埋めます
+  
 const PART = {
   "亀岡大翔": "Euph", "五十棲遥奈": "Fl", "井原響花": "Tp", "仲谷紗楽": "Tb",
   "伊藤綾音": "Perc", "佐竹志音": "Hr", "信國陽香": "WR", "別所収穂": "Hr",
@@ -165,7 +164,7 @@ const PART = {
   "迫田小由姫": "Cl", "道田美羽": "Sax", "長澤晟行": "Tp", "髙本乙葉": "Hr",
   "黒田千尋": "Tb"
 };
-// n=名前, k=決定した漢字四文字（未決定の3人は仮の候補のまま）
+
 const ROLES = [
  {name:"部長",members:[{n:"髙本乙葉",k:"圧政圧政"}]},
  {name:"副部長",members:[{n:"岡部百々奏",k:"赤髪笛吹"},{n:"原田唄羽",k:"教育番組"},{n:"藤井湊平",k:"血液拉麺"}]},
@@ -225,7 +224,7 @@ function renderHome(){
   </div>
   <div class="carpet">
     <div class="unlockLink" id="rosterLink">
-      ${locked? '🔒 <span>名簿一覧は <b>時間になったら</b> 公開されます</span>' : '📋 <span><b>役職名簿一覧</b> を見る</span>'}
+      ${locked? '🔒 <span>名簿一覧は <b>時間になったら</b> 公開されます</span>' : '📋 <span><b>役職名簿一覧</b> を見る(発表会中はこのリンクは見れません)</span>'}
     </div>
     <div class="roleGrid">
       ${ROLES.map((r,i)=>`<button data-i="${i}">${r.name}</button>`).join('')}
