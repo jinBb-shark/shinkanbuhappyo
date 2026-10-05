@@ -223,7 +223,7 @@ function renderHome(){
   </div>
   <div class="carpet">
     <div class="unlockLink ${locked?'disabled':''}" id="rosterLink">
-      ${locked? '🔒 <span>名簿一覧は <b>10月5日 20時00分に</b> 公開されます</span>' : '📋 <span><b>役職名簿一覧</b> を見る</span>'}
+      ${locked? '🔒 <span>名簿一覧は <b>本日の練習後</b> に公開されます</span>' : '📋 <span><b>役職名簿一覧</b> を見る</span>'}
     </div>
     <div class="roleGrid">
       ${ROLES.map((r,i)=>`<button data-i="${i}">${r.name}</button>`).join('')}
